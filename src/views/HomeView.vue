@@ -1,6 +1,7 @@
 <script setup>
 import { usePostsStore } from '@/stores/posts';
 import {onMounted, ref} from 'vue';
+import { RouterLink } from 'vue-router';
 
   const {getAllPosts} = usePostsStore()
   const posts = ref([])
@@ -19,6 +20,7 @@ import {onMounted, ref} from 'vue';
         </p>
         <p>
           {{ post.body }}
+          <RouterLink :to="{name: 'show', params:{id: post.id}}" class="text-blue-500 font-bold underline ">Read more...</RouterLink>
         </p>
       </div>
     </div>
